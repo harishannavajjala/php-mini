@@ -1,21 +1,20 @@
-<?php
+ <?php
 require 'functions.php';
-if(isset($_POST['createAccount'])){
-     	 // call a function in functions.php which inserts this data into the database
-			$fullname = $_POST['flname'];
-			$phone = $_POST['PhNo'];
-			$username = $_POST['username'];
-			$password = $_POST['password'];
-
-			
-			$insertFlag = validateAndInsert($fullname,$phone,$username,$password);
-			
-			if(!$insertFlag){
-				echo "The username is entered is not available , please enter a different one";
-			}else{
-				$_POST['SignUp']=true;
-				header('Location: Profile.php');
-			}
+if (isset($_POST['createAccount'])) {
+	// call a function in functions.php which inserts this data into the database
+	$fullname = $_POST['flname'];
+	$phone = $_POST['PhNo'];
+	$username = $_POST['username'];
+	$password = $_POST['password'];
+	
+	$insertFlag = validateAndInsert($fullname,$phone,$username,$password);
+	
+	if (!$insertFlag) {
+		echo "The username is entered is not available , please enter a different one";
+	} else {
+		$_POST['SignUp']=true;
+		header('Location: Profile.php');
+	}
 }
 
 ?>
